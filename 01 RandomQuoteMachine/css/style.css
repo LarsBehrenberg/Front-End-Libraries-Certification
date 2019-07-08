@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+    margin-top: 10vh;
+}
+
+footer {
+    text-align: center;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+
+#quote-box {
+    /* border and background */
+    border: 1px solid black;
+    box-shadow: 5px 5px gray;
+    background-color: #f3f2ef;
+    border-radius: 3px;
+
+    /* size */
+    width: 700px;
+    height: 400px;
+
+}
+
+#quote {
+    border: 1px solid black; /* DELETE LATER */
+    margin: 50px auto;
+    max-width: 70%;
+}
+
+#text {
+    text-align: left;
+    margin: 20px 20px 0 20px;
+}
+
+#author {
+    text-align: right;
+    margin-right: 20px;
+}
+#buttons{
+    border: 1px solid black; /* DELETE LATER */
+    position: absolute;
+}
