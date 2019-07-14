@@ -1,0 +1,45 @@
+/* Giving background a color */
+body{
+  background-color: #78CDD7;
+}
+
+
+/* Defining the container */
+.MarkdownPreviewer {
+  /* Width + padding left&right = 100% */
+  width: 98%;
+  padding: 0 1% 0 1%;
+  height: 100%;
+
+  /* Defining grid */
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr; 
+  grid-column-gap: 10px;
+  grid-row-gap: 0px;
+}
+
+/* Editor (lefthand side) */
+#editor {
+  /* Define grid area */
+  grid-area: 1 / 1 / 2 / 2;
+  border-radius: 5px;
+  background-color: rgb(134, 134, 134);
+  font-size: 20px;
+}
+#editor:focus{
+  outline: none
+}
+
+/* Preview (righthand side) */
+#preview {
+  border-radius: 5px;
+  border: 1px solid black;
+  grid-area: 1 / 2 / 2 / 3;
+  background-color: rgb(16, 110, 119);
+  font-size: 20px;
+}
+/* Removing top space inside of the preview div  */
+#preview h1, h2, h3, h4, h5, h6, p{
+  margin-top: 0;
+}
