@@ -80,28 +80,23 @@ export default class DrumMachine extends React.Component {
 
   render(){
     return (
-      // Left hand side displaying the keys
-      <div className="row" id="drum-machine">
-        <div id="left-section" className="col-7">
-          <div className="row">
+      // Overall drum machine div
+      <div id="drum-machine">
+        {/* Left hand side displaying the keys */}
+        <div id="left-section">
             <DrumPad id="Q" track="Heater 1"/>
             <DrumPad id="W" track="Heater 2"/>
             <DrumPad id="E" track="Heater 3"/>
-          </div>
-          <div className="row">
             <DrumPad id="A" track="HiHat"/>
             <DrumPad id="S" track="Kick'n'Hat"/>
             <DrumPad id="D" track="Ching"/>
-          </div>
-          <div className="row">
             <DrumPad id="Z" track="Piano Chord"/>
             <DrumPad id="X" track="Give us a light"/>
             <DrumPad id="C" track="Dry Ohh"/>
-          </div>
         </div>
   
         {/* Right hand side showing the display */}
-        <div id="right-section" className="col-5">
+        <div id="right-section">
           <div id="display"></div>
         </div>
       </div>
