@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="src/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Pomodoro Clock</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <h1 style="text-align: center">Pomodoro Clock</h1>
+    <div id="app-container">
+                <!-- Upper part - Break length / Session length -->
+                <div id="break-container">
+                    <span id="break-label">Break Length:</span><br />
+                    <button id="break-decrement" onclick="decrement('break')">&#8592; </button>
+                    <span id="break-length">5</span>
+                    <button id="break-increment" onclick="increment('break')"> &#8594;</button>
+                </div>
+                <div id="session-container">
+                    <span id="session-label">Session Length:</span><br />
+                    <button id="session-decrement" onclick="decrement('session')">&#8592; </button>
+                    <span id="session-length">25</span>
+                    <button id="session-increment" onclick="increment('session')"> &#8594;</button>
+                </div>
+
+                <!-- Lower part - Timer encounting -->
+                <div id="time-container">
+                    <div>
+                        <button id="start_stop" onclick="startTimer()">Start/Stop</button>    
+                    </div>
+                    <div>
+                        <audio id="beep">
+                            <source src="src/beep-sound.mp3" type="audio/mpeg"></source>
+                            Your browser does not support the audio element.
+                        </audio>
+                        <span id="timer-label">Timer</span><br />
+                        <span id="time-left">25:00</span>
+                    </div>
+                    <div>
+                    <button id="reset" onclick="resetTimer()">Reset</button>    
+                    </div>
+                </div>
+            </div>
+            <p id="notice" style="text-align: center"></p>
+    <script src="https://cdn.jsdelivr.net/npm/easytimer@1.1.1/dist/easytimer.min.js"></script>
+    <script src="src/index.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
+</html>
