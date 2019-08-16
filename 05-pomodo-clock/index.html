@@ -3,13 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="src/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <title>Pomodoro Clock</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <h1 style="text-align: center">Pomodoro Clock</h1>
+    <h1 style="text-align: center; font-family: 'Orbitron', sans-serif;">Pomodoro Clock</h1>
     <div id="app-container">
                 <!-- Upper part - Break length / Session length -->
                 <div id="break-container">
@@ -24,22 +25,23 @@
                     <span id="session-length">25</span>
                     <button id="session-increment" onclick="increment('session')"> &#8594;</button>
                 </div>
-
-                <!-- Lower part - Timer encounting -->
-                <div id="time-container">
+                <div id="timer-buttons">
                     <div>
                         <button id="start_stop" onclick="startTimer()">Start/Stop</button>    
                     </div>
+                    <div>
+                        <button id="reset" onclick="resetTimer()">Reset</button>
+                    </div>
+                </div>
+                <!-- Lower part - Timer encounting -->
+                <div id="time-container">
                     <div>
                         <audio id="beep">
                             <source src="src/beep-sound.mp3" type="audio/mpeg"></source>
                             Your browser does not support the audio element.
                         </audio>
-                        <span id="timer-label">Timer</span><br />
-                        <span id="time-left">25:00</span>
-                    </div>
-                    <div>
-                    <button id="reset" onclick="resetTimer()">Reset</button>    
+                        <span id="timer-label" style="margin-bottom: 50px" >Timer</span><br />
+                        <span id="time-left" style="font-family: 'Orbitron', sans-serif">25:00</span>
                     </div>
                 </div>
             </div>
