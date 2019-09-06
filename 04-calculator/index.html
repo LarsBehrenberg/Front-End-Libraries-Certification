@@ -10,36 +10,40 @@
 </head>
 
 <body>
+
+        <script src="src/index.js"></script>
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     <h1>Javascript Calculator</h1>
 
     <div id="app-container">
-        <div id="display">0</div>
-
-        <div id="numberButtons">
-            <div id="seven" class="button number">7</div>
-            <div id="eight" class="button number">8</div>
-            <div id="nine" class="button number">9</div>
-            <div id="four" class="button number">4</div>
-            <div id="five" class="button number">5</div>
-            <div id="six" class="button number">6</div>
-            <div id="one" class="button number">1</div>
-            <div id="two" class="button number">2</div>
-            <div id="three" class="button number">3</div>
+        <div id="display-container">
+            <div id="display">0</div>
+            <div id="calculation-display">0</div>
         </div>
 
-        <div id="clear" class="button" style="background-color: rgb(223, 84, 84)">AC</div>
-        <div id="divide" class="button">/</div>
-        <div id="multiply" class="button">x</div>
-        <div id="subtract" class="button">-</div>
-        <div id="add" class="button">+</div>
-        <div id="equals" class="button" style="background-color: rgb(35, 35, 155)">=</div>
+        <div id="numberButtons">
+            <button id="seven" class="button number" onclick="getNum(7)">7</button>
+            <button id="eight" class="button number" onclick="getNum(8)">8</button>
+            <button id="nine" class="button number" onclick="getNum(9)">9</button>
+            <button id="four" class="button number" onclick="getNum(4)">4</button>
+            <button id="five" class="button number" onclick="getNum(5)">5</button>
+            <button id="six" class="button number" onclick="getNum(6)">6</button>
+            <button id="one" class="button number" onclick="getNum(1)">1</button>
+            <button id="two" class="button number" onclick="getNum(2)">2</button>
+            <button id="three" class="button number" onclick="getNum(3)">3</button>
+        </div>
 
-        <div id="zero" class="button number">0</div>
-        <div id="decimal" class="button number">.</div>
+        <button id="clear" class="button" style="background-color: rgb(223, 84, 84)" onclick="ac()">AC</button>
+        <button id="divide" class="button" onclick="div()">/</button>
+        <button id="multiply" class="button" onclick="mult()">x</button>
+        <button id="subtract" class="button" onclick="sub()">-</button>
+        <button id="add" class="button" onclick="add()">+</button>
+        <button id="equals" class="button" style="background-color: rgb(35, 35, 155)" onclick="equal()">=</button>
+
+        <button id="zero" class="button number" onclick="getNum(0)">0</button>
+        <button id="decimal" class="button number" onclick="dot()">.</button>
     </div>
 
-    <script src="src/index.js"></script>
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 
 </html>

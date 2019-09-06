@@ -10,7 +10,6 @@ h1 {text-align: center}
         
     border: 3px solid black;
     border-radius: 5px;
-    font-size: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
 
@@ -19,7 +18,7 @@ h1 {text-align: center}
     grid-template-rows: repeat(6, 1fr);
 
     grid-template-areas: 
-        "display display display display"
+        "display-container display-container display-container display-container"
         "clear clear div tim"
         "number number number subtract"
         "number number number plus"
@@ -27,12 +26,26 @@ h1 {text-align: center}
         "zero zero decimal equals";
 }
 
-#display {
-    grid-area: display;
-    background-color: black;
+button {
+    font-size: 20px;
+}
 
+#display-container {
+    grid-area: display-container;
+    background-color: black;
     text-align: right;
 }
+#display {
+    height: 60%;
+    width: 100%;
+    font-size: 30px;
+}
+#calculation-display {
+    height: 40%;
+    width: 100%;
+    color: gray;
+}
+
 #clear {
     grid-area: clear;
 } 
