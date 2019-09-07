@@ -11,8 +11,7 @@
 
 <body>
 
-        <script src="src/index.js"></script>
-        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+        
     <h1>Javascript Calculator</h1>
 
     <div id="app-container">
@@ -22,28 +21,29 @@
         </div>
 
         <div id="numberButtons">
-            <button id="seven" class="button number" onclick="getNum(7)">7</button>
-            <button id="eight" class="button number" onclick="getNum(8)">8</button>
-            <button id="nine" class="button number" onclick="getNum(9)">9</button>
-            <button id="four" class="button number" onclick="getNum(4)">4</button>
-            <button id="five" class="button number" onclick="getNum(5)">5</button>
-            <button id="six" class="button number" onclick="getNum(6)">6</button>
-            <button id="one" class="button number" onclick="getNum(1)">1</button>
-            <button id="two" class="button number" onclick="getNum(2)">2</button>
-            <button id="three" class="button number" onclick="getNum(3)">3</button>
+            <button id="seven" class="button number" onclick="displayCurrentNumber(7)">7</button>
+            <button id="eight" class="button number" onclick="displayCurrentNumber(8)">8</button>
+            <button id="nine" class="button number" onclick="displayCurrentNumber(9)">9</button>
+            <button id="four" class="button number" onclick="displayCurrentNumber(4)">4</button>
+            <button id="five" class="button number" onclick="displayCurrentNumber(5)">5</button>
+            <button id="six" class="button number" onclick="displayCurrentNumber(6)">6</button>
+            <button id="one" class="button number" onclick="displayCurrentNumber(1)">1</button>
+            <button id="two" class="button number" onclick="displayCurrentNumber(2)">2</button>
+            <button id="three" class="button number" onclick="displayCurrentNumber(3)">3</button>
         </div>
 
         <button id="clear" class="button" style="background-color: rgb(223, 84, 84)" onclick="ac()">AC</button>
-        <button id="divide" class="button" onclick="div()">/</button>
-        <button id="multiply" class="button" onclick="mult()">x</button>
-        <button id="subtract" class="button" onclick="sub()">-</button>
-        <button id="add" class="button" onclick="add()">+</button>
-        <button id="equals" class="button" style="background-color: rgb(35, 35, 155)" onclick="equal()">=</button>
+        <button id="divide" class="button" onclick="operatorPressed('divide')">/</button>
+        <button id="multiply" class="button" onclick="operatorPressed('multiply')">x</button>
+        <button id="subtract" class="button" onclick="operatorPressed('subtract')">-</button>
+        <button id="add" class="button" onclick="operatorPressed('addition')">+</button>
+        <button id="equals" class="button" style="background-color: rgb(35, 35, 155)" onclick="equal(true)">=</button>
 
-        <button id="zero" class="button number" onclick="getNum(0)">0</button>
+        <button id="zero" class="button number" onclick="displayCurrentNumber(0)">0</button>
         <button id="decimal" class="button number" onclick="dot()">.</button>
     </div>
-
+    <script src="src/index.js"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 
 </html>

@@ -1,83 +1,95 @@
 var currentNumber = 0;
+var operator = "";
 var result = 0;
-var calcArray = [];
-var dotActive = false;
-var addition = false, subtraction = false, multiplication = false, division = false, equalButton = false;
+var display = true;
+var equalIsPressed = false;
 
 // Get number function
-function getNum(data) {
-    if (equalButton == true) {
-        equalButton = false;
-        document.getElementById("display").innerHTML = "0";
-    } 
-    
-    document.getElementById("display").innerHTML == "0" ? document.getElementById("display").innerHTML = data : document.getElementById("display").innerHTML += data; // add number to display if not 0
-    currentNumber = Number(document.getElementById("display").innerHTML); // store new displayed number in currentNumber
-    console.log(currentNumber); // log it
-    
+function displayCurrentNumber(keyData) {
+    if (display || document.getElementById("display").innerHTML == "0") {
+        display = false;
+        document.getElementById("display").innerHTML = keyData
+        currentNumber = Number(document.getElementById("display").innerHTML);
+        console.log("currentNumber: " + currentNumber); // log it
+    } else {
+        if (document.getElementById("display").innerHTML.length < 10) {
+            document.getElementById("display").innerHTML += keyData
+            currentNumber = Number(document.getElementById("display").innerHTML);
+            console.log("currentNumber: " + currentNumber); // log it
+        } else {
+            console.log("too long")
+        }
+    }
+
 }
 
 
-function dot(){
-    if (dotActive == false) {
-        dotActive = true;
+function dot() {
+    if (!document.getElementById("display").innerHTML.includes(".")) {
+        display = false;
         document.getElementById("display").innerHTML += ".";
+        currentNumber = Number(document.getElementById("display").innerHTML); // store new displayed number in currentNumber
+        console.log("currentNumber: " + currentNumber); // log it
+    } else {
+        console.log("dot is already there");
     }
 }
 
-function add() {
-    calcArray.push(currentNumber);
-    calcArray.push("+");
-    currentNumber = 0;
-    dotActive = false;
-    document.getElementById("display").innerHTML = 0;
-    document.getElementById("calculation-display").innerHTML = calcArray.join("");
-}
-function sub() {
-    calcArray.push(currentNumber);
-    calcArray.push("-");
-    currentNumber = 0;
-    dotActive = false;
-    document.getElementById("display").innerHTML = 0;
-    document.getElementById("calculation-display").innerHTML = calcArray.join("");
-}
 
-function mult(){
-    calcArray.push(currentNumber);
-    calcArray.push("*");
-    currentNumber = 0;
-    dotActive = false;
-    document.getElementById("display").innerHTML = 0;
-    document.getElementById("calculation-display").innerHTML = calcArray.join("");
+function operatorPressed(currentOperator) {
+
+        if (operator == "" && !equalIsPressed) {
+            result = currentNumber; // Store currentNumber
+            operator = currentOperator;
+        } else if (equalIsPressed) {
+            equalIsPressed = false;
+            operator = currentOperator;
+        } else {
+            equal();
+            operator = currentOperator;
+        }
+        display = true; // Enter new number
+
+    
+
 }
 
-function div() {
-    calcArray.push(currentNumber);
-    calcArray.push("/");
-    currentNumber = 0;
-    dotActive = false;
-    document.getElementById("display").innerHTML = 0;
-    document.getElementById("calculation-display").innerHTML = calcArray.join("");
-}
+function equal(isPressed) {
+        switch (operator){
+            case "divide":
+                    console.log("result div");
+                    result /= currentNumber;
+                    break;
+                case "multiply":
+                    console.log("result multiply");
+                    result *= currentNumber;
+                    break;
+                case "subtract":
+                    console.log("result subtract");
+                    result -= currentNumber;
+                    break;
+                case "addition":
+                    console.log("result addition");
+                    result += currentNumber;
+                    break;
+                default: 
+                    break;
+        }
 
-
-function equal () {
-    equalButton = true;
-    calcArray.push(currentNumber);
-    result = eval(calcArray.join(""));
-    calcArray = [];
-    currentNumber = 0;
-    dotActive = false;
+        if(isPressed){
+            operator= "";
+            equalIsPressed = true;
+        }
+    
     document.getElementById("display").innerHTML = result;
-    document.getElementById("calculation-display").innerHTML = "";
+    display = true; // Enter new number
 }
 
 function ac() {
-    equalButton = false;
-    calcArray = [];
     currentNumber = 0;
+    operator = "";
     result = 0;
-    dotActive = false;
-    document.getElementById("display").innerHTML = "0";
-    document.getElementById("calculation-display").innerHTML = "";
+    equalIsPressed = false;
+    display = true;
+    document.getElementById("display").innerHTML = currentNumber;
 }
