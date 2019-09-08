@@ -17,7 +17,7 @@
     <div id="app-container">
         <div id="display-container">
             <div id="display">0</div>
-            <div id="calculation-display">0</div>
+            <div id="calculation-display"></div>
         </div>
 
         <div id="numberButtons">
@@ -33,11 +33,11 @@
         </div>
 
         <button id="clear" class="button" style="background-color: rgb(223, 84, 84)" onclick="ac()">AC</button>
-        <button id="divide" class="button" onclick="operatorPressed('divide')">/</button>
-        <button id="multiply" class="button" onclick="operatorPressed('multiply')">x</button>
-        <button id="subtract" class="button" onclick="operatorPressed('subtract')">-</button>
-        <button id="add" class="button" onclick="operatorPressed('addition')">+</button>
-        <button id="equals" class="button" style="background-color: rgb(35, 35, 155)" onclick="equal(true)">=</button>
+        <button id="divide" class="button" onclick="operatorPressed('/')">/</button>
+        <button id="multiply" class="button" onclick="operatorPressed('*')">x</button>
+        <button id="subtract" class="button" onclick="operatorPressed('-')">-</button>
+        <button id="add" class="button" onclick="operatorPressed('+')">+</button>
+        <button id="equals" class="button" style="background-color: rgb(35, 35, 155)" onclick="equal()">=</button>
 
         <button id="zero" class="button number" onclick="displayCurrentNumber(0)">0</button>
         <button id="decimal" class="button number" onclick="dot()">.</button>
