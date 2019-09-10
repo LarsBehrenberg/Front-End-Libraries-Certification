@@ -1,6 +1,8 @@
-body{
-background: #708090;
+body {
+    background: #708090;
+    font-family: 'Open Sans', sans-serif
 }
+
 #main {
     width: 100vw;
     height: 100vh;
@@ -8,17 +10,29 @@ background: #708090;
 }
 
 .container {
-    height: 70%;
-    width: 60%;
+    height: 600px;
+    width: 1000px;
     border: 1px solid black;
     margin: auto;
     background-color: #fff;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    box-shadow: 2px 2px 20px;
 }
 
 #chart {
-    border: 1px solid black;
-    height: 70%;
-    width: 92%;
-    margin: 0 auto;
+    height: 500px;
+    width: 800px;
+    padding-left: 10px;
+}
+
+
+.bar:hover {
+    fill: white;
+}
+
+#tooltip {
+    padding: 5px;
+    position: absolute;
+    background-color: #c5ccd3;
+    text-align: center;
+    box-shadow: 2px 2px 20px;
 }
