@@ -1,0 +1,29 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    /* background-color: rgb(179, 179, 179);  */
+}
+#title, #description {
+    text-align: center;
+}
+
+#svgContainer {
+    margin: auto;
+    width: 1400px;
+    height: 680px;
+    border: 1px solid black;
+}
+
+.cell:hover{
+    stroke: black;
+}
+
+.tooltip {
+    padding: 5px;
+    position: absolute;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px ;
+    font-size: 0.8em;
+    text-align: center;
+}
