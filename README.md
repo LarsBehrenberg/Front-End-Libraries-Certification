@@ -1,2 +1,2 @@
-# Front End Libraries Certification
-Front End projects from the freeCodeCamp "Front End Libraries" certification
+# FreeCodeCamp-Certification-Projects
+Projects coded for the FreeCodeCamp Certifications https://learn.freecodecamp.org/
