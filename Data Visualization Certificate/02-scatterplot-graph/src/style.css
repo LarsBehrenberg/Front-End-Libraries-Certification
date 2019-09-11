@@ -1,0 +1,26 @@
+body {
+    font-family: 'Open Sans', sans-serif
+}
+.title {
+    text-align: center;
+}
+.container {
+    display: grid;
+    margin: 0 auto;
+    width: 900px;
+    height: 700px;
+}
+
+#svgContainer {
+    margin: auto;
+    width: 900px;
+    height: 600px;
+}
+
+.tooltip {
+    padding: 5px;
+    position: absolute;
+    background-color: #c5ccd3;
+    box-shadow: 2px 2px 20px;
+    font-size: 0.8em;
+}
