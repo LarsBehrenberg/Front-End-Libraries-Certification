@@ -10,14 +10,20 @@ window.onload = function () {
 
         // Define svg container width, height & padding
         const w = 1400;
-        const h = 600;
-        const padding = 70;
+        const h = 630;
+        const padding = {
+            "top": 30,
+            "right": 70,
+            "bottom": 200,
+            "left": 100
+        };
 
         // Build the svg
         const svg = d3.select("#svgContainer")
             .append("svg")
+            .attr("id", "legend")
             .attr("width", w)
-            .attr("height", h);
+            .attr("height", h)
 
         var div = d3.select("#svgContainer").append("div")
             .attr("class", "tooltip")
@@ -34,26 +40,26 @@ window.onload = function () {
         // Build X & Y scales and axis:
         const xScale = d3.scaleBand()
             .domain(years)
-            .range([padding, w - padding]);
+            .range([padding.left, w - padding.right]);
         const yScale = d3.scaleBand()
             .domain(monthNames)
-            .range([h - padding, padding]);
+            .range([h - padding.bottom, padding.top]);
 
         const xAxis = d3.axisBottom(xScale).tickValues(xScale.domain().filter((d, i) => !(i % 10)));
         const yAxis = d3.axisLeft(yScale)
 
         // Draw axes
         svg.append("g")
-            .attr("transform", "translate(0," + (h - padding) + ")")
+            .attr("transform", "translate(0," + (h - padding.bottom) + ")")
             .attr("id", "x-axis")
             .call(xAxis);
         svg.append("g")
-            .attr("transform", "translate(" + (padding) + ",0)")
+            .attr("transform", "translate(" + (padding.left) + ",0)")
             .attr("id", "y-axis")
             .call(yAxis);
 
         // Color scale
-        const colors = ["#67001f","#b2182b","#d6604d","#f4a582","#fddbc7","#f7f7f7","#d1e5f0","#92c5de","#4393c3","#2166ac","#053061"]
+        const colors = ["#67001f", "#b2182b", "#d6604d", "#f4a582", "#fddbc7", "#f7f7f7", "#d1e5f0", "#92c5de", "#4393c3", "#2166ac", "#053061"]
         var myColor = d3.scaleQuantile()
             .range(colors.reverse())
             .domain([d3.min(dataset, (d) => d.variance), d3.max(dataset, (d) => d.variance)])
@@ -84,11 +90,11 @@ window.onload = function () {
                     .duration(200)
                     .style("opacity", 0.6);
 
-                var htmlOutput = d.year + " - " + monthNames[d.month-1] + "<br />" + (data.baseTemperature + d.variance).toFixed(1) + "\xB0C<br />" + d.variance.toFixed(1) + "\xB0C";
+                var htmlOutput = d.year + " - " + monthNames[d.month - 1] + "<br />" + (data.baseTemperature + d.variance).toFixed(1) + "\xB0C<br />" + d.variance.toFixed(1) + "\xB0C";
 
                 div.html(htmlOutput)
                     .style("top", (d3.mouse(this)[1]) + 50 + "px")
-                    .style("left", (d3.mouse(this)[0])  + "px")
+                    .style("left", (d3.mouse(this)[0]) + "px")
                     .attr("id", "tooltip")
                     .attr("data-year", d.year)
             })
@@ -97,11 +103,18 @@ window.onload = function () {
                     .duration(500)
                     .style("opacity", 0);
             });
-        // svg.append("rect")
-        //     .attr("width", 50)
-        //     .attr("height", 50)
-        //     .attr("x", w / 2)
-        //     .attr("y", h + 50)
+
+        for (let x = 1; x < colors.length + 1; x++) {
+            svg.append("rect")
+                .attr("id", "legend")
+                .attr("width", 40)
+                .attr("height", 30)
+                .attr("x", (w / 4) + x * 40)
+                .attr("y", h - padding.bottom / 1.7)
+                .style("stroke", "black")
+                .style("fill", colors[x - 1])
+                .append("text")
+        }
 
     }
 }

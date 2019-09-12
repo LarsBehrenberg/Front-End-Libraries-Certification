@@ -1,6 +1,5 @@
 body {
     font-family: 'Open Sans', sans-serif;
-    /* background-color: rgb(179, 179, 179);  */
 }
 #title, #description {
     text-align: center;
@@ -9,8 +8,7 @@ body {
 #svgContainer {
     margin: auto;
     width: 1400px;
-    height: 680px;
-    border: 1px solid black;
+    height: 630px;
 }
 
 .cell:hover{
