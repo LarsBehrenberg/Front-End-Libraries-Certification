@@ -4,3 +4,12 @@ body {
 #title, #description {
     text-align: center;
 }
+
+svg{
+    display: block;
+    margin: 0 auto
+}
+
+.state:hover {
+    fill: red;
+}
