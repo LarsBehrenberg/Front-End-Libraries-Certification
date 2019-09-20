@@ -10,6 +10,13 @@ svg{
     margin: 0 auto
 }
 
-.state:hover {
-    fill: red;
+.tooltip {
+    padding: 5px;
+    position: absolute;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px ;
+    font-size: 0.8em;
+    text-align: left;
 }
