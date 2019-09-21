@@ -59,19 +59,21 @@ Promise.all([ // D3 function
         .style("stroke", "white")
         .style("stroke-width", "1")
         .style("fill", (d) => {
-            for (let x = 0; x < educationDataset.length; x++) {
-                if (d.id == educationDataset[x].fips) {
-                    return colorScale(educationDataset[x].bachelorsOrHigher)
-                }
-            }
+            var result = educationDataset.filter(function( obj ) {
+                return obj.fips == d.id;
+              });
+              if(result[0]){
+                return colorScale(result[0].bachelorsOrHigher)
+              }
         })
         .attr("data-fips", (d) => d.id)
         .attr("data-education", (d) => {
-            for (let x = 0; x < educationDataset.length; x++) {
-                if (d.id == educationDataset[x].fips) {
-                    return educationDataset[x].bachelorsOrHigher;
-                }
-            }
+            var result = educationDataset.filter(function( obj ) {
+                return obj.fips == d.id;
+              });
+              if(result[0]){
+                return result[0].bachelorsOrHigher
+              }
         })
         .on("mouseover", function (d) { // Add tooltip on hover
 
@@ -98,20 +100,43 @@ Promise.all([ // D3 function
 
 
 
-    let legendLength = 7
+    // let legendLength = 7
 
-    for (let x = 1; x < colors.length + 1; x++) {
-        svg
-            .append("rect")
-            .attr("id", "legend")
-            .attr("class", "legend")
-            .attr("width", 30)
-            .attr("height", 20)
-            .attr("x", w - 40)
-            .attr("y", ((h / 2) - 20 * 3) + (20 * x))
-            .style("stroke", "black")
-            .style("fill", colors[x - 1])
-            .append("text")
-    }
+    var g = svg.append("g")
+    .attr("id", "legend")
+
+    var x = d3.scaleLinear()
+    .domain([d3.min(educationDataset, (d) => d.bachelorsOrHigher), d3.max(educationDataset, (d) => d.bachelorsOrHigher)])
+    .rangeRound([500, 860]);
+
+    g.selectAll("rect")
+    .data(colorScale.range().map(function(d) {
+        d = colorScale.invertExtent(d);
+        if (d[0] == null) d[0] = d3.min(educationDataset, (d) => d.bachelorsOrHigher);
+        if (d[1] == null) d[1] = d3.max(educationDataset, (d) => d.bachelorsOrHigher);
+        return d;
+      }))
+    .enter().append("rect")
+      .attr("height", 10)
+      .attr("x", function(d) { return x(d[0]); })
+      .attr("width", function(d) { return x(d[1]) - x(d[0]); })
+      .attr("fill", function(d) { return colorScale(d[0]); });
+      
+
+
+
+    // for (let x = 1; x < colors.length + 1; x++) {
+    //     svg
+    //         .append("rect")
+    //         .attr("id", "legend")
+    //         .attr("class", "legend")
+    //         .attr("width", 30)
+    //         .attr("height", 20)
+    //         .attr("x", w - 40)
+    //         .attr("y", ((h / 2) - 20 * 3) + (20 * x))
+    //         .style("stroke", "black")
+    //         .style("fill", colors[x - 1])
+    //         .append("text")
+    // }
 
 });
