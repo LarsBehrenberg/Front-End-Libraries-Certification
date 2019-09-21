@@ -1,0 +1,14 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+#title, #description {
+    text-align: center;
+}
+
+#svg{
+    display: block;
+    margin: 0 auto;
+    height: 700px;
+    width: 900px;
+    border: 1px solid black;
+}
